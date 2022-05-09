@@ -4,8 +4,10 @@ Babel==2.10.1
 backports.zoneinfo==0.2.1
 blinker==1.4
 Bootstrap-Flask==2.0.2
+cffi==1.15.0
 chardet==4.0.0
 click==8.1.2
+cryptography==37.0.2
 dnspython==2.2.1
 email-validator==1.2.1
 excel==1.0.0
@@ -30,6 +32,7 @@ Jinja2==3.1.1
 lml==0.1.0
 Mako==1.2.0
 MarkupSafe==2.1.1
+pycparser==2.21
 pyexcel==0.7.0
 pyexcel-io==0.6.6
 pyexcel-webio==0.1.4
