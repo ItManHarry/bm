@@ -13,7 +13,7 @@ def reg_web_plugins(app):
     migrate.init_app(app, db)
     csrf.init_app(app)
     dropzone.init_app(app)
-    # login_manager.init_app(app)
+    login_manager.init_app(app)
     # babel.init_app(app)
     scheduler.init_app(app)
     scheduler.start()
