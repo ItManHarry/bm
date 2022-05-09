@@ -1,5 +1,7 @@
 {% extends 'base.html'%}
 {%block title%}System Login Page{%endblock%}
+{% block header %}&nbsp;{% endblock %}
+{% block menus %}&nbsp;{% endblock%}
 {%block content%}
 <form style="margin-top:50px;" method="post">
     {{form.csrf_token}}
@@ -18,6 +20,13 @@
             {{form.user_pwd.label}}
         </div>
       </div>
+    </div><br>
+    <div class="form-group text-center text-danger">
+        {% if get_flashed_messages() %}
+            {% for message in get_flashed_messages() %}
+                <i class="bi bi-exclamation-triangle"></i>&nbsp;<small>{{ message }}</small>
+            {% endfor %}
+        {% endif %}
     </div><br>
     <div class="row g-2">
         <div class="col-md-6 offset-md-3">
