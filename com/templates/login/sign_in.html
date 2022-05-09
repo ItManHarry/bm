@@ -1,13 +1,31 @@
 {% extends 'base.html'%}
 {%block title%}System Login Page{%endblock%}
 {%block content%}
-<div class="form-floating mb-3">
-  <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
-  <label for="floatingInput">Email address</label>
-</div>
-<div class="form-floating">
-  <input type="password" class="form-control" id="floatingPassword" placeholder="Password">
-  <label for="floatingPassword">Password</label>
-</div>
+<form style="margin-top:50px;" method="post">
+    {{form.csrf_token}}
+    <div class="row g-2">
+      <div class="col-md-6 offset-md-3">
+        <div class="form-floating">
+            {{form.user_id(class='form-control', placeholder='User ID')}}
+            {{form.user_id.label}}
+        </div>
+      </div>
+    </div><br>
+    <div class="row g-2">
+      <div class="col-md-6 offset-md-3">
+        <div class="form-floating">
+            {{form.user_pwd(class='form-control', placeholder='User ID')}}
+            {{form.user_pwd.label}}
+        </div>
+      </div>
+    </div><br>
+    <div class="row g-2">
+        <div class="col-md-6 offset-md-3">
+            <div class="d-grid">
+                <button class="btn btn-primary">Login</button>
+            </div>
+        </div>
+    </div>
+</form>
 {%endblock%}
 <script>{% block script %}&nbsp;{%endblock%}</script>
