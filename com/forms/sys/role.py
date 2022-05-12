@@ -11,7 +11,7 @@ class RoleForm(FlaskForm):
     company = SelectField('法人', [validators.optional()], choices=[])
 
     def validate_name(self, field):
-        if self.id.data == '':
+        if self.id.data is None or self.id.data == '':
             if SysRole.query.filter_by(name=field.data).first():
                 raise ValidationError('角色名称已存在!')
         else:

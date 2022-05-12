@@ -75,7 +75,11 @@ def add():
 def get_user_selects():
     roles = []
     companies = []
-    for role in SysRole.query.filter(SysRole.name != 'Administrator', SysRole.company_id == current_user.company_id).order_by(SysRole.name).all():
+    conditions = set()
+    conditions.add(SysRole.name != 'Administrator')
+    if not current_user.is_admin:
+        conditions.add(SysRole.company_id == current_user.company_id)
+    for role in SysRole.query.filter(*conditions).order_by(SysRole.name).all():
         roles.append((role.id, role.name))
     for company in BizCompany.query.order_by(BizCompany.code).all():
         companies.append((company.id, company.name))
