@@ -16,7 +16,7 @@ class MenuForm(FlaskForm):
     order_by = IntegerField('排序号(整数)', validators=[DataRequired('菜单序号必须是整数！')])
 
     def validate_name(self, field):
-        if self.id.data == '':
+        if self.id.data is None or self.id.data == '':
             if SysMenu.query.filter_by(name=field.data).first():
                 raise ValidationError('菜单名称已存在!')
         else:

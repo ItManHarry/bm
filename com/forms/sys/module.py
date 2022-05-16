@@ -12,7 +12,7 @@ class ModuleForm(FlaskForm):
     order_by = IntegerField('排序号(整数)', validators=[DataRequired('模块序号必须是整数！')])
 
     def validate_code(self, field):
-        if self.id.data == '':
+        if self.id.data is None or self.id.data == '':
             if SysModule.query.filter_by(code=field.data.lower()).first():
                 raise ValidationError('模块代码已存在!')
         else:

@@ -11,7 +11,7 @@ class CompanyForm(CompanySearchForm):
 
     def validate_code(self, field):
         selected_enterprise = BizEnterprise.query.get(self.enterprise.data)
-        if self.id.data == '':
+        if self.id.data is None or self.id.data == '':
             if BizCompany.query.with_parent(selected_enterprise).filter_by(code=field.data.upper()).first():
                 raise ValidationError('法人代码已存在!')
         else:

@@ -12,7 +12,7 @@ class DictForm(FlaskForm):
     name = StringField('字典名称', validators=[DataRequired('请输入字典名称！')])
 
     def validate_code(self, field):
-        if self.id.data == '':
+        if self.id.data is None or self.id.data == '':
             if SysDict.query.filter_by(code=field.data.upper()).first():
                 raise ValidationError('字典代码已存在!')
         else:
@@ -27,7 +27,7 @@ class DictForm(FlaskForm):
             if field.data.upper() in codes:
                 raise ValidationError('字典代码已存在!')
     def validate_name(self, field):
-        if self.id.data == '':
+        if self.id.data is None or self.id.data == '':
             if SysDict.query.filter_by(name=field.data).first():
                 raise ValidationError('字典名称已存在!')
         else:

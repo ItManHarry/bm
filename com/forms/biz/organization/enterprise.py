@@ -7,7 +7,7 @@ class EnterpriseForm(FlaskForm):
     code = StringField('事业处代码', validators=[DataRequired('请输入事业处代码!')])
     name = StringField('事业处名称', validators=[DataRequired('请输入事业处名称!')])
     def validate_code(self, field):
-        if self.id.data == '':
+        if self.id.data is None or self.id.data == '':
             if BizEnterprise.query.filter_by(code=field.data.upper()).first():
                 raise ValidationError('事业处代码已存在!')
         else:

@@ -1,18 +1,7 @@
 {% extends 'base.html' %}
 {% block content %}
 {{current_location(None)}}
-<div class="clearfix text-center">
-{% if get_flashed_messages() %}
-    <div class="alert alert-info alert-dismissible fade show" role="alert">
-      {% for message in get_flashed_messages() %}
-        <small>{{ message }}</small>
-      {% endfor %}
-      <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-        <span aria-hidden="true">&times;</span>
-      </button>
-    </div>
-{% endif %}
-</div>
+{{show_alert()}}
 <div class="clearfix">
   <a href="{{url_for('enterprise.add')}}" class="btn btn-outline-primary float-right"><i class="bi bi-plus"></i>&nbsp;新增</a>
 </div>

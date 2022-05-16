@@ -36,7 +36,7 @@ class DepartmentForm(FlaskForm):
     def validate_code(self, field):
         company = BizCompany.query.get(self.company_id.data)
         if company:
-            if self.id.data == '':
+            if self.id.data is None or self.id.data == '':
                 if BizDepartment.query.with_parent(company).filter_by(code=field.data.lower()).first():
                     raise ValidationError('部门代码已存在!')
             else:
@@ -49,7 +49,7 @@ class DepartmentForm(FlaskForm):
     def validate_name(self, field):
         company = BizCompany.query.get(self.company_id.data)
         if company:
-            if self.id.data == '':
+            if self.id.data is None or self.id.data == '':
                 if BizDepartment.query.with_parent(company).filter_by(name=field.data).first():
                     raise ValidationError('部门名称已存在!')
             else:

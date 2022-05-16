@@ -2,18 +2,7 @@
 {% from 'bootstrap/pagination.html' import render_pagination with context %}
 {% block content %}
 {{current_location('')}}
-<div class="clearfix text-center">
-{% if get_flashed_messages() %}
-    <div class="alert alert-info alert-dismissible fade show" role="alert">
-      {% for message in get_flashed_messages() %}
-        <small>{{ message }}</small>
-      {% endfor %}
-      <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-        <span aria-hidden="true">&times;</span>
-      </button>
-    </div>
-{% endif %}
-</div>
+{{show_alert()}}
 <form method="post">
   <div class="row">
     <div class="col-3 offset-6 text-end">

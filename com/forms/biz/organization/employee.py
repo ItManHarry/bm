@@ -16,7 +16,7 @@ class EmployeeForm(FlaskForm):
     
     def validate_code(self, field):
         company = BizCompany.query.get(self.company.data)
-        if self.id.data == '':
+        if self.id.data is None or self.id.data == '':
             if BizEmployee.query.with_parent(company).filter_by(code=field.data.lower()).first():
                 raise ValidationError('职号已存在!')
         else:

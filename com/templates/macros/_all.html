@@ -29,3 +29,15 @@
     </div>
     <hr>
 {% endmacro %}
+{% macro show_alert() %}
+<div class="clearfix text-center">
+{% if get_flashed_messages() %}
+    <div class="alert alert-success alert-dismissible fade show" role="alert">
+      {% for message in get_flashed_messages() %}
+        {{ message }}
+      {% endfor %}
+      <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+{% endif %}
+</div>
+{% endmacro%}
