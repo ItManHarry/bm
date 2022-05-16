@@ -104,8 +104,9 @@ def edit(id):
         else:
             print('删除上级部门更新')
             parent_department = RelDepartment.query.filter_by(child_department_id=id).first()
-            db.session.delete(parent_department)
-            db.session.commit()
+            if parent_department:
+                db.session.delete(parent_department)
+                db.session.commit()
         flash('部门信息更新成功！')
         return redirect(url_for('.index', id=form.id.data))
     return render_template('biz/organization/department/edit.html', form=form)

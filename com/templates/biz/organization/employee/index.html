@@ -5,14 +5,14 @@
 {{show_alert()}}
 <form method="post">
   <div class="row">
-    <div class="col-3 offset-3 text-right">
+    <div class="col-3 offset-2 text-right">
         {{form.csrf_token}}
         {{form.code(class='form-control', placeholder='职号')}}
     </div>
     <div class="col-3 text-right">
         {{form.name(class='form-control', placeholder='姓名')}}
     </div>
-    <div class="col-3 text-right">
+    <div class="col-4 text-right">
         <button class="btn btn-outline-info" type="submit"><i class="bi bi-search"></i>&nbsp;查找</button>&nbsp;&nbsp;
         <a class="btn btn-outline-primary {%if current_user.is_admin%}disabled{%endif%}" href="{{url_for('employee.add')}}"><i class="bi bi-plus"></i>&nbsp;新增</a>&nbsp;&nbsp;
         <div class="btn-group">
