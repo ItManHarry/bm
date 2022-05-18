@@ -5,11 +5,11 @@
 {{show_alert()}}
 <form method="post">
   <div class="row">
-    <div class="col offset-7">
+    <div class="col-2 offset-8">
         {{form.csrf_token}}
         {{form.name(class='form-control', placeholder='角色名称')}}
     </div>
-    <div class="col">
+    <div class="col-2 text-end">
         <button class="btn btn-outline-info" type="submit"><i class="bi bi-search"></i>&nbsp;查找</button>&nbsp;&nbsp;
         <a class="btn btn-outline-primary" href="{{url_for('role.add')}}"><i class="bi bi-plus"></i>&nbsp;新增</a>
     </div>
