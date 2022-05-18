@@ -150,5 +150,8 @@ def export(sign):
     for employee in employees:
         data_body.append([employee.company.name, employee.code, employee.name, employee.department.name, employee.email if employee.email else '-', employee.phone if employee.phone else '-', '在职' if employee.active else '离职'])
     data = data_header + data_body
+    print('Data header : ', data_header)
+    print('Data body : ', data_body)
     file_name = u'雇员信息-all' if sign == 0 else u'雇员信息-' + str(page)
+    print('Excel file name is : ', file_name)
     return excel.make_response_from_array(data, file_name=file_name, file_type='xlsx')
