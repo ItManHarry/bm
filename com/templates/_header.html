@@ -20,6 +20,7 @@
         {% if current_user.is_authenticated %}
             <h5 class="text-secondary"><i class="bi bi-person"></i>&nbsp;{{current_user.user_name}}</h5>&nbsp;&nbsp;&nbsp;&nbsp;
             <a class="btn btn-outline-success btn-sm" title="登出" href="{{url_for('auth.logout')}}"><i class="bi bi-box-arrow-right"></i></a>
+            <!--a tabindex="0" class="btn btn-lg btn-danger" role="button" data-bs-toggle="popover" data-bs-trigger="focus" title="{{current_user.user_name}}" data-bs-content="<H1>And here's</H1> some amazing content. It's very engaging. Right?">Dismissible popover</a-->
         {% endif %}
     </div>
   </div>
