@@ -41,6 +41,7 @@
                 <td>{%if user.active%}<span class="text-success">在用</span>{%else%}<span class="text-danger">停用</span>{%endif%}</td>
                 <td class="text-center">
                     <a href="{{url_for('user.edit', id=user.id)}}" class="btn btn-link text-info {%if not user.active or user.user_id == 'admin'%}disabled{%endif%}" title="编辑"><i class="bi bi-pencil-square"></i></a>&nbsp;
+                    {#<button class="btn btn-link text-warning {%if not user.active or user.user_id == 'admin'%}disabled{%endif%}" data-bs-toggle="popover" data-bs-placement="right" data-bs-trigger="hover focus" data-bs-html="true" data-bs-content="<small class='text-info'>重置密码</small>" onclick="reset_password('{{user.id}}')"><i class="bi bi-unlock"></i></button>&nbsp;#}
                     <button class="btn btn-link text-warning {%if not user.active or user.user_id == 'admin'%}disabled{%endif%}" title="重置密码" onclick="reset_password('{{user.id}}')"><i class="bi bi-unlock"></i></button>&nbsp;
                     <button class="btn btn-link text-danger {%if not user.active or user.user_id == 'admin'%}disabled{%endif%}" title="停用" onclick="status('{{user.id}}', 0)"><i class="bi bi-x-circle"></i></button>&nbsp;
                     <button class="btn btn-link text-success {%if user.active or user.user_id == 'admin'%}disabled{%endif%}" title="启用" onclick="status('{{user.id}}', 1)"><i class="bi bi-check-circle"></i></button>
