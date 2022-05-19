@@ -42,8 +42,10 @@
                 <td>{%if menu.active%}<span class="text-success">在用</span>{%else%}<span class="text-danger">停用</span>{%endif%}</td>
                 <td class="text-center">
                     <a href="{{url_for('menu.edit', id=menu.id)}}" class="btn btn-link text-info" title="编辑"><i class="bi bi-pencil-square"></i></a>&nbsp;
+                    {#
                     <button class="btn btn-link text-danger {%if not menu.active%}disabled{%endif%}" title="停用" onclick="status('{{menu.id}}', 0)"><i class="bi bi-x-circle"></i></button>&nbsp;
                     <button class="btn btn-link text-success {%if menu.active%}disabled{%endif%}" title="启用" onclick="status('{{menu.id}}', 1)"><i class="bi bi-check-circle"></i></button>
+                    #}
                 </td>
             </tr>
         {%endfor%}
