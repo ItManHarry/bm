@@ -27,7 +27,7 @@ class ModuleForm(FlaskForm):
                 raise ValidationError('模块代码已存在!')
 
     def validate_name(self, field):
-        if self.id.data == '':
+        if self.id.data is None or self.id.data == '':
             if SysModule.query.filter_by(name=field.data).first():
                 raise ValidationError('模块名称已存在!')
         else:

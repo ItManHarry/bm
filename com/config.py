@@ -4,15 +4,16 @@ dev_db = os.getenv('DEV_DB')
 uat_db = os.getenv('UAT_DB')
 pro_db = os.getenv('PRO_DB')
 basedir = os.path.abspath(os.path.dirname(os.path.dirname(__file__)))
+print('Base path is : ', basedir)
 class GlobalConfig():
     SECRET_KEY = os.getenv('SECRET_KEY', '123456789qazxswedcvfr!@#@452631')
     BOOTSTRAP_SERVE_LOCAL = True                # Bootstrap本地化
     ITEM_COUNT_PER_PAGE = 10
-    '''
-    SYS_LOCALES = ['zh_Hans_CN', 'en_US']       # 国际化区域设置
+    # SYS_LOCALES = ['zh_Hans_CN', 'en_US']       # 国际化区域设置
     BAR_CODE_PATH = os.path.join(basedir, 'codes\\bars')    # 条形码保存路径
     QR_CODE_PATH = os.path.join(basedir, 'codes\\qrs')      # 二维码保存路径
     FILE_UPLOAD_PATH = 'D:/Development/Python/workplaces/uploads'
+    '''
     MAIL_SERVER = os.getenv('MAIL_SERVER')      # 邮箱服务器
     MAIL_DEFAULT_SENDER = ('IT Service', os.getenv('MAIL_SENDER'))  # 默认发件人
     MAIL_SUBJECT_PREFIX = '[Notice]'            # 邮件主题前缀
