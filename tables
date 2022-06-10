@@ -1,0 +1,43 @@
+表	表名	类别	说明
+系统用户	sys_user	系统表	
+用户菜单关联表	rel_user_menu	关联表	
+系统角色	sys_role	系统表	
+角色菜单关联表	rel_role_menu	关联表	
+系统模块	sys_module	系统表	
+系统菜单	sys_menu	系统表	
+系统日志	sys_log	系统表	
+事业处表	biz_enterprise	组织表	
+法人表	   biz_company	组织表	
+部门表	biz_department	组织表	上下级通过rel_departments自关联
+部门关联表	rel_department	关联表	
+雇员表	biz_employee	组织表	
+系统字典	sys_dict	master表	
+字典枚举	sys_enum	master表	
+仓库表	biz_store_master	master表	存放位置
+供应商信息表	biz_vendor_master	master表	
+品牌型号信息	biz_brand_master	master表	
+通知邮件	biz_email_config	master表	定时任务收件人信息维护
+申请登记表	biz_asset_apply	业务表	先做申请登记，再做购买登记，最后登记资产
+购买登记表	biz_asset_buy	业务表	申请登记1::1
+资产类别表	biz_asset_class	master表	上下级通过rel_asset_class自关联(三级品类)
+资产类别关联表	rel_asset_class	master表	
+资产主信息表	biz_asset_master	master表	
+资产关联表	rel_asset_master	关联表	实现主资产和辅材的绑定：关联节点 -> 资产&耗材领用发放时绑定
+资产属性表	biz_asset_property	master表	和资产表1:1：资产有属性，耗材无属性
+资产维保信息表	biz_asset_maint	业务表	和资产表1:N
+入库登记	biz_stock_in	业务表	资产Master数据新增一条；耗材新增/更新一条记录；保存完成后写入出入库履历；根据三级类别更新库存余额
+入库明细	biz_stock_in_item	业务表	关联资产主数据&耗材主数据（均为1：N）
+出库登记	biz_stock_out	业务表	对应业务层的领用发放申请单及借用发放申请单
+出库明细	biz_stock_out_item	业务表	资产修改在库及资产状态信息；耗材只更新库存余额即可
+出入库履历	biz_stock_io_history	业务表	三级分类查询出入库履历，关联物料主表
+库存余额表	biz_stock_amount	业务表	三级分类查询库存余额
+维修申请表	biz_asset_repair	业务表	1. 单个维修 2. 只做资产维修，耗材无维修管理 
+资产报废表	biz_asset_scrap	业务表	1. 批量报废 2. 只做资产报废，耗材无报废管理
+资产盘点单	biz_asset_check	业务表	1. 批量盘点 2. 只做资产盘点，耗材无盘点管理
+资产盘点明细	biz_asset_check_item	业务表	
+预审批表	audit_order_item	审批表	
+审批模板	audit_line	审批表	
+审批角色	audit_role	审批表	
+审批等级	rel_audit_line_role	关联表	审批线/审批角色，一对多关联，配置的角色个数为审批级数
+审批人员	rel_audit_role_user	关联表	审批角色/用户，多对多关系
+审批履历	audit_history	审批表	和审批表1对多关联
